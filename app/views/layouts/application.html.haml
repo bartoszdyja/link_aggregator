@@ -1,0 +1,32 @@
+!!! 5
+%html
+	%head
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		%title Week 1 Link Aggregator
+		= stylesheet_link_tag    'application', 'min', 'narrow', media: 'all', 'data-turbolinks-track' => true 
+		= javascript_include_tag 'application', 'data-turbolinks-track' => true 
+		= csrf_meta_tags 
+	%body
+		.container
+			.header.clearfix
+				%nav
+					%ul.nav.nav-pills.pull-right
+						%li.active{role: "presentation"}=link_to 'Home'
+						%li{role: "presentation"}=link_to 'Sign In'
+						%li{role: "presentation"}=link_to 'Sign Up'
+				%h3.text-muted OWn Progress Blog
+
+/ <!-- 
+
+/ <!DOCTYPE html>
+/ <html>
+/ <head>
+/   <title>Week1Reddit</title>
+/   <%= csrf_meta_tags %>
+/ </head>
+/ <body>
+
+/ <%= yield %>
+/ <%= console %>
+/ </body>
+/ </html>
