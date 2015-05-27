@@ -1,2 +1,11 @@
 -@websites.each do |w|
 	%h1= w.name
+	%p 
+		Page discovered 
+		=w.found
+	.btn-group{role: 'group', 'aria-label' => "b"}
+		=link_to 'Visit link', "http://#{w.url}", class: "btn btn-primary"
+		-if true
+			=link_to 'Edit', websites_path, class: "btn btn-info"
+			=link_to 'Destroy', websites_path, class: "btn btn-info"
+	%p=	w.found
