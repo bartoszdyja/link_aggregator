@@ -5,6 +5,7 @@ class WebsitesController < ApplicationController
 
   def create
   	@website = Website.new(website_params)
+  	@website.user = current_user
   	if @website.save
   		redirect_to websites_path
   	else
@@ -17,6 +18,7 @@ class WebsitesController < ApplicationController
   end
 
   def show
+  	@website=Website.find(params[:id])
   end
 
   private

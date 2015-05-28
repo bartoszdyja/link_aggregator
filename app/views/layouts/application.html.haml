@@ -7,15 +7,21 @@
 		= javascript_include_tag 'application', 'data-turbolinks-track' => true 
 		= csrf_meta_tags 
 	%body
+		%p.notice= notice
+		%p.alert= alert
 		.container
 			.header.clearfix
 				%nav
 					%ul.nav.nav-pills.pull-right
-						%li.active{role: "presentation"}=link_to 'Home'
-						%li{role: "presentation"}=link_to 'Sign In'
-						%li{role: "presentation"}=link_to 'Sign Up'
+						-if user_signed_in?
+							%li{role: "presentation"}=link_to 'Add new website', new_website_path
+							%li{role: "presentation"}=link_to 'Logout', destroy_user_session_path, method: :delete
+						-else
+							%li{role: "presentation"}=link_to 'Sign In', new_user_session_path
+							%li{role: "presentation"}=link_to 'Sign Up', new_user_registration_path
 				%h3.text-muted Own Progress Blog
 			=yield
+			=console
 
 / <!-- 
 
